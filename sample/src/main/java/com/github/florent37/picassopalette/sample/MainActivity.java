@@ -26,7 +26,7 @@ public class MainActivity extends ActionBarActivity {
         String url = "http://www.gizmodo.fr/wp-content/uploads/2013/07/Dark-Vador.jpg";
         Picasso.with(this).load(url).fit().centerCrop().into(
                 imageView,
-                PicassoPalette.with(imageView)
+                PicassoPalette.with(url,imageView)
                         .use(PicassoPalette.Profile.MUTED_DARK)
                         .intoBackground(textView,PicassoPalette.Swatch.RGB)
                         .intoTextColor(textView,PicassoPalette.Swatch.BODY_TEXT_COLOR)

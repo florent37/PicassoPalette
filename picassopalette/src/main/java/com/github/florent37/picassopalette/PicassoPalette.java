@@ -7,6 +7,7 @@ import android.support.annotation.IntDef;
 import android.support.v4.util.Pair;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
+import android.util.LruCache;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -23,6 +24,8 @@ import java.util.ArrayList;
  * Created by florentchampigny on 08/05/15.
  */
 public class PicassoPalette implements Target, Callback {
+
+    private LruCache<String,Palette> cache = new LruCache<>(40);
 
     private static final String TAG = "PicassoPalette";
 
@@ -55,15 +58,16 @@ public class PicassoPalette implements Target, Callback {
     }
 
     private ImageView imageView;
-    private
+    private String url;
     @Profile.PaletteProfile
     int paletteProfile = Profile.VIBRANT;
 
     private ArrayList<Pair<View, Integer>> targetsBackground = new ArrayList<>();
     private ArrayList<Pair<TextView, Integer>> targetsText = new ArrayList<>();
 
-    public static PicassoPalette with(ImageView imageView) {
+    public static PicassoPalette with(String url, ImageView imageView) {
         PicassoPalette picassoPalette = new PicassoPalette();
+        picassoPalette.url = url;
         picassoPalette.imageView = imageView;
         return picassoPalette;
     }
@@ -150,12 +154,18 @@ public class PicassoPalette implements Target, Callback {
     }
 
     private void start(Bitmap bitmap) {
-        Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
-            @Override
-            public void onGenerated(Palette palette) {
-                PicassoPalette.this.apply(palette);
-            }
-        });
+        if(cache.get(url) != null){
+            PicassoPalette.this.apply(cache.get(url));
+        }
+        else {
+            Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
+                @Override
+                public void onGenerated(Palette palette) {
+                    cache.put(url, palette);
+                    PicassoPalette.this.apply(palette);
+                }
+            });
+        }
     }
 
     //region Picasso.TARGET
