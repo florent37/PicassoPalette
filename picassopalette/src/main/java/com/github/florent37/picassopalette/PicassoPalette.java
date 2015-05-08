@@ -59,6 +59,8 @@ public class PicassoPalette implements Target, Callback {
 
     private ImageView imageView;
     private String url;
+    private Callback callback;
+
     @Profile.PaletteProfile
     int paletteProfile = Profile.VIBRANT;
 
@@ -94,6 +96,13 @@ public class PicassoPalette implements Target, Callback {
         this.targetsText.add(new Pair<>(textView, paletteSwatch));
         return this;
     }
+
+    public PicassoPalette setPicassoCallback(Callback callback) {
+        this.callback = callback;
+        return this;
+    }
+
+    //region apply
 
     private void apply(Palette palette) {
         Palette.Swatch swatch = null;
@@ -168,6 +177,8 @@ public class PicassoPalette implements Target, Callback {
         }
     }
 
+    //enregion
+
     //region Picasso.TARGET
 
     @Override
@@ -187,14 +198,16 @@ public class PicassoPalette implements Target, Callback {
 
     @Override
     public void onSuccess() {
-        Log.d(TAG, "onSuccess");
+        if(this.callback != null)
+            this.callback.onSuccess();
         Bitmap bitmap = ((BitmapDrawable) this.imageView.getDrawable()).getBitmap();
         onBitmapLoaded(bitmap, null);
     }
 
     @Override
     public void onError() {
-        Log.d(TAG, "onError");
+        if(this.callback != null)
+            this.callback.onError();
     }
 
     //endregion
