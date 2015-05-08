@@ -3,24 +3,30 @@ PicassoPalette
 
 [![Build Status](https://travis-ci.org/florent37/Wear-Emmet.svg)](https://travis-ci.org/florent37/PicassoPalette)
 
-TODO
---------
+#Usage
+
+```java
+Picasso.with(this).load(url).into(imageView,
+                PicassoPalette.with(imageView)
+                        .use(PicassoPalette.Profile.MUTED_DARK)
+                        .intoBackground(textView,PicassoPalette.Swatch.RGB)
+                        .intoTextColor(textView,PicassoPalette.Swatch.BODY_TEXT_COLOR)
+        );
+```
+
+#TODO
 
 Cache the palettes
 
-Community
---------
+#Community
 
 Looking for contributors, feel free to fork !
 
-
-Dependencies
---------
+#Dependencies
 
 - Picasso from Square : [http://square.github.io/picasso/][picasso]
 
-Credits
--------
+#Credits
 
 Author: Florent Champigny
 
@@ -37,8 +43,7 @@ Author: Florent Champigny
        src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/linkedin.png" />
 </a>
 
-License
---------
+#License
 
     Copyright 2015 florent37, Inc.
 
