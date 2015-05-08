@@ -16,8 +16,6 @@ Picasso.with(this).load(url).into(imageView,
 
 #TODO
 
-Cache the palettes
-
 #Community
 
 Looking for contributors, feel free to fork !
