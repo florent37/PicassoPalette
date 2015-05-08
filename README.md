@@ -3,6 +3,13 @@ PicassoPalette
 
 [![Build Status](https://travis-ci.org/florent37/Wear-Emmet.svg)](https://travis-ci.org/florent37/PicassoPalette)
 
+#Download
+
+In your module [![Download](https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg)](https://bintray.com/florent37/maven/PicassoPalette/_latestVersion)
+```groovy
+compile 'com.github.florent37:picassopalette:1.0.0@aar'
+```
+
 #Usage
 
 ```java
