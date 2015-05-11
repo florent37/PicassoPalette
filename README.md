@@ -51,6 +51,19 @@ You can successively use following palettes :
 - Palette.MUTED_DARK
 - Palette.MUTED_LIGHT
 
+```java
+.use(PicassoPalette.Profile.MUTED_DARK)
+```
+
+**Each time you call "use" the next modification will use this Palette**
+
+```java
+.use(PicassoPalette.Profile.MUTED_DARK)
+    //next operations will use Profile.MUTED_DARK
+.use(PicassoPalette.Profile.VIBRANT)
+    //next operations will use Profile.VIBRANT
+```
+
 ##Swatches
 
 With the following Swatchs
