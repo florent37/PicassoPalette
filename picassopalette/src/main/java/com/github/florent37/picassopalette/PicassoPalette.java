@@ -25,6 +25,10 @@ import java.util.ArrayList;
  */
 public class PicassoPalette implements Target, Callback {
 
+    public interface CallBack{
+        void onPaletteLoaded(Palette palette);
+    }
+
     private LruCache<String,Palette> cache = new LruCache<>(40);
 
     private static final String TAG = "PicassoPalette";
@@ -66,6 +70,7 @@ public class PicassoPalette implements Target, Callback {
 
     private ArrayList<Pair<View, Integer>> targetsBackground = new ArrayList<>();
     private ArrayList<Pair<TextView, Integer>> targetsText = new ArrayList<>();
+    private ArrayList<PicassoPalette.CallBack> callbacks = new ArrayList<>();
 
     public static PicassoPalette with(String url, ImageView imageView) {
         PicassoPalette picassoPalette = new PicassoPalette();
@@ -102,9 +107,19 @@ public class PicassoPalette implements Target, Callback {
         return this;
     }
 
+    public PicassoPalette addCallBack(PicassoPalette.CallBack callBack){
+        if(callBack != null)
+            callbacks.add(callBack);
+        return this;
+    }
+
+
     //region apply
 
     private void apply(Palette palette) {
+        for(PicassoPalette.CallBack c : callbacks){
+            c.onPaletteLoaded(palette);
+        }
         Palette.Swatch swatch = null;
         switch (this.paletteProfile) {
             case Profile.VIBRANT:
@@ -139,10 +154,12 @@ public class PicassoPalette implements Target, Callback {
             }
 
             this.targetsBackground.clear();
+            this.callbacks.clear();
             this.targetsText.clear();
 
             this.targetsBackground = null;
             this.targetsText = null;
+            this.callbacks = null;
         }
     }
 
