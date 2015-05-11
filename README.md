@@ -59,7 +59,7 @@ You can successively use following palettes :
 .use(PicassoPalette.Profile.MUTED_DARK)
 ```
 
-**Each time you call "use" the next modification will use this Palette**
+**Each time you call "use" the next modification will follow this Profile**
 
 ```java
 .use(PicassoPalette.Profile.MUTED_DARK)
