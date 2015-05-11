@@ -16,8 +16,11 @@ compile 'com.github.florent37:picassopalette:1.0.0@aar'
 Picasso.with(this).load(url).into(imageView,
                 PicassoPalette.with(url, imageView)
                                         .use(PicassoPalette.Profile.MUTED_DARK)
-                                        .intoBackground(textView, PicassoPalette.Swatch.RGB)
-                                        .intoTextColor(textView, PicassoPalette.Swatch.BODY_TEXT_COLOR)
+                                            .intoBackground(textView, PicassoPalette.Swatch.RGB)
+                                            .intoTextColor(textView, PicassoPalette.Swatch.BODY_TEXT_COLOR)
+                                        .use(PicassoPalette.Profile.VIBRANT)
+                                             .intoBackground(titleView, PicassoPalette.Swatch.RGB)
+                                             .intoTextColor(titleView, PicassoPalette.Swatch.BODY_TEXT_COLOR)
                                         .addCallBack(new PicassoPalette.CallBack() {
                                             @Override
                                             public void onPaletteLoaded(Palette palette) {

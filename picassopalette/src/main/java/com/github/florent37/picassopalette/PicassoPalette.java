@@ -19,6 +19,9 @@ import com.squareup.picasso.Target;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * Created by florentchampigny on 08/05/15.
@@ -65,11 +68,7 @@ public class PicassoPalette implements Target, Callback {
     private String url;
     private Callback callback;
 
-    @Profile.PaletteProfile
-    int paletteProfile = Profile.VIBRANT;
-
-    private ArrayList<Pair<View, Integer>> targetsBackground = new ArrayList<>();
-    private ArrayList<Pair<TextView, Integer>> targetsText = new ArrayList<>();
+    private LinkedList<PaletteTarget> targets = new LinkedList<>();
     private ArrayList<PicassoPalette.CallBack> callbacks = new ArrayList<>();
 
     public static PicassoPalette with(String url, ImageView imageView) {
@@ -80,7 +79,7 @@ public class PicassoPalette implements Target, Callback {
     }
 
     public PicassoPalette use(@Profile.PaletteProfile int paletteProfile) {
-        this.paletteProfile = paletteProfile;
+        this.targets.add(new PaletteTarget(paletteProfile));
         return this;
     }
 
@@ -89,7 +88,10 @@ public class PicassoPalette implements Target, Callback {
     }
 
     public PicassoPalette intoBackground(View view, @Swatch.PaletteSwatch int paletteSwatch) {
-        this.targetsBackground.add(new Pair<>(view, paletteSwatch));
+        if(this.targets.isEmpty())
+            throw new UnsupportedOperationException("You must specify a palette with use(Profile.PaletteProfile)");
+
+        this.targets.getLast().targetsBackground.add(new Pair<>(view, paletteSwatch));
         return this;
     }
 
@@ -98,7 +100,10 @@ public class PicassoPalette implements Target, Callback {
     }
 
     public PicassoPalette intoTextColor(TextView textView, @Swatch.PaletteSwatch int paletteSwatch) {
-        this.targetsText.add(new Pair<>(textView, paletteSwatch));
+        if(this.targets.isEmpty())
+            throw new UnsupportedOperationException("You must specify a palette with use(Profile.PaletteProfile)");
+
+        this.targets.getLast().targetsText.add(new Pair<>(textView, paletteSwatch));
         return this;
     }
 
@@ -120,46 +125,44 @@ public class PicassoPalette implements Target, Callback {
         for(PicassoPalette.CallBack c : callbacks){
             c.onPaletteLoaded(palette);
         }
-        Palette.Swatch swatch = null;
-        switch (this.paletteProfile) {
-            case Profile.VIBRANT:
-                swatch = palette.getVibrantSwatch();
-                break;
-            case Profile.VIBRANT_DARK:
-                swatch = palette.getDarkVibrantSwatch();
-                break;
-            case Profile.VIBRANT_LIGHT:
-                swatch = palette.getLightVibrantSwatch();
-                break;
-            case Profile.MUTED:
-                swatch = palette.getMutedSwatch();
-                break;
-            case Profile.MUTED_DARK:
-                swatch = palette.getDarkMutedSwatch();
-                break;
-            case Profile.MUTED_LIGHT:
-                swatch = palette.getLightMutedSwatch();
-                break;
-        }
 
-        if (swatch != null) {
-            for (Pair<View, Integer> target : this.targetsBackground) {
-                int color = getColor(swatch, target.second);
-                target.first.setBackgroundColor(color);
+        for(PaletteTarget target : targets) {
+            Palette.Swatch swatch = null;
+            switch (target.paletteProfile) {
+                case Profile.VIBRANT:
+                    swatch = palette.getVibrantSwatch();
+                    break;
+                case Profile.VIBRANT_DARK:
+                    swatch = palette.getDarkVibrantSwatch();
+                    break;
+                case Profile.VIBRANT_LIGHT:
+                    swatch = palette.getLightVibrantSwatch();
+                    break;
+                case Profile.MUTED:
+                    swatch = palette.getMutedSwatch();
+                    break;
+                case Profile.MUTED_DARK:
+                    swatch = palette.getDarkMutedSwatch();
+                    break;
+                case Profile.MUTED_LIGHT:
+                    swatch = palette.getLightMutedSwatch();
+                    break;
             }
 
-            for (Pair<TextView, Integer> target : this.targetsText) {
-                int color = getColor(swatch, target.second);
-                target.first.setTextColor(color);
+            if (swatch != null) {
+                for (Pair<View, Integer> t : target.targetsBackground) {
+                    int color = getColor(swatch, t.second);
+                    t.first.setBackgroundColor(color);
+                }
+
+                for (Pair<TextView, Integer> t : target.targetsText) {
+                    int color = getColor(swatch, t.second);
+                    t.first.setTextColor(color);
+                }
+
+                target.clear();
+                this.callbacks = null;
             }
-
-            this.targetsBackground.clear();
-            this.callbacks.clear();
-            this.targetsText.clear();
-
-            this.targetsBackground = null;
-            this.targetsText = null;
-            this.callbacks = null;
         }
     }
 
