@@ -32,7 +32,11 @@ Picasso.with(this).load(url).into(imageView,
          );
 ```
 
-##Init
+![Alt sample](https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small.png)
+
+
+
+##Initialisation
 
 First, init PicassoPalette with an **Url** and an **ImageView**
 
