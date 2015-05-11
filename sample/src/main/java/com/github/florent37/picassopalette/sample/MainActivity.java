@@ -64,7 +64,7 @@ public class MainActivity extends ActionBarActivity {
                             .intoBackground(textMutedLight, PicassoPalette.Swatch.RGB)
                             .intoTextColor(textMutedLight, PicassoPalette.Swatch.BODY_TEXT_COLOR)
 
-                        .addCallBack(new PicassoPalette.CallBack() {
+                        .intoCallBack(new PicassoPalette.CallBack() {
                             @Override
                             public void onPaletteLoaded(Palette palette) {
                                 //specific task

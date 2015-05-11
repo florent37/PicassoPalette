@@ -10,11 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e2a66d7b-ec10-4672-8e90-9f0b7629e028" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PaletteTarget.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/picassopalette/sample/MainActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/picassopalette/sample/MainActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PicassoPalette.java" afterPath="$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PicassoPalette.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="PicassoPalette.iws" />
@@ -47,7 +45,7 @@
         <entry file="file://$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PicassoPalette.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
+              <caret line="114" column="38" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -57,10 +55,10 @@
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/picassopalette/sample/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="41" column="110" selection-start-line="41" selection-start-column="110" selection-end-line="41" selection-end-column="110" />
+              <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
               <folding>
-                <element signature="e#3089#3337#0" expanded="true" />
-                <element signature="e#3336#3337#0" expanded="true" />
+                <element signature="e#3090#3338#0" expanded="true" />
+                <element signature="e#3337#3338#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -69,8 +67,8 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.34166667">
-              <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.53125">
+              <caret line="89" column="3" selection-start-line="89" selection-start-column="3" selection-end-line="89" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -1584,9 +1582,9 @@
         <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/picassopalette/build.gradle" />
         <option value="$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PaletteTarget.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PicassoPalette.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/com/github/florent37/picassopalette/sample/MainActivity.java" />
-        <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -1893,7 +1891,7 @@
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="0303b21208e5b188" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="10_1_WXGA_Tablet_API_21" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/screenshot" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2095,7 +2093,13 @@
       <option name="project" value="LOCAL" />
       <updated>1431369075704</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added multiples uses">
+      <created>1431371761605</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1431371761605</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2144,7 +2148,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="added calback" />
-    <option name="LAST_COMMIT_MESSAGE" value="added calback" />
+    <MESSAGE value="added multiples uses" />
+    <option name="LAST_COMMIT_MESSAGE" value="added multiples uses" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2315,14 +2320,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PicassoPalette.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="160" column="10" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/activity_main.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.137931">
@@ -2334,21 +2331,34 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/screenshot/nyancat.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/picassopalette/src/main/java/com/github/florent37/picassopalette/PicassoPalette.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="114" column="38" selection-start-line="114" selection-start-column="38" selection-end-line="114" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/com/github/florent37/picassopalette/sample/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="41" column="110" selection-start-line="41" selection-start-column="110" selection-end-line="41" selection-end-column="110" />
+          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
           <folding>
-            <element signature="e#3089#3337#0" expanded="true" />
-            <element signature="e#3336#3337#0" expanded="true" />
+            <element signature="e#3090#3338#0" expanded="true" />
+            <element signature="e#3337#3338#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34166667">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.53125">
+          <caret line="89" column="3" selection-start-line="89" selection-start-column="3" selection-end-line="89" selection-end-column="3" />
           <folding />
         </state>
       </provider>

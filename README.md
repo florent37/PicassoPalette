@@ -10,7 +10,7 @@ In your module [![Download](https://api.bintray.com/packages/florent37/maven/Pic
 compile 'com.github.florent37:picassopalette:1.0.0@aar'
 ```
 
-#Usage
+#Sample
 
 ```java
 Picasso.with(this).load(url).into(imageView,
@@ -18,9 +18,11 @@ Picasso.with(this).load(url).into(imageView,
                                         .use(PicassoPalette.Profile.MUTED_DARK)
                                             .intoBackground(textView, PicassoPalette.Swatch.RGB)
                                             .intoTextColor(textView, PicassoPalette.Swatch.BODY_TEXT_COLOR)
+
                                         .use(PicassoPalette.Profile.VIBRANT)
                                              .intoBackground(titleView, PicassoPalette.Swatch.RGB)
                                              .intoTextColor(titleView, PicassoPalette.Swatch.BODY_TEXT_COLOR)
+
                                         .addCallBack(new PicassoPalette.CallBack() {
                                             @Override
                                             public void onPaletteLoaded(Palette palette) {
@@ -29,6 +31,64 @@ Picasso.with(this).load(url).into(imageView,
                                         })
         );
 ```
+
+##Init
+
+First, init PicassoPalette with an **Url** and an **ImageView**
+
+```java
+PicassoPalette.with(url, imageView)
+```
+
+##Palettes
+
+You can successively use following palettes :
+
+- Palette.VIBRANT
+- Palette.VIBRANT_DARK
+- Palette.VIBRANT_LIGHT
+- Palette.MUTED
+- Palette.MUTED_DARK
+- Palette.MUTED_LIGHT
+
+##Swatches
+
+With the following Swatchs
+
+- RGB
+- TITLE_TEXT_COLOR
+- BODY_TEXT_COLOR
+
+##Targets
+
+Into Backgrounds
+
+```java
+.intoBackground(view)
+.intoBackground(view,Swatch.RGB)
+```
+
+And TextView Color
+
+```java
+.intoTextColor(textView)
+.intoTextColor(textView,Swatch.TITLE_TEXT_COLOR)
+```
+
+#CallBack
+
+Or simply return into CallBack
+
+```java
+.intoCallBack(
+    new PicassoPalette.CallBack() {
+          @Override
+          public void onPaletteLoaded(Palette palette) {
+              //specific task
+          }
+    })
+```
+
 
 #TODO
 

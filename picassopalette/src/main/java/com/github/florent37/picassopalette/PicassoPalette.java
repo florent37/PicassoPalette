@@ -112,7 +112,7 @@ public class PicassoPalette implements Target, Callback {
         return this;
     }
 
-    public PicassoPalette addCallBack(PicassoPalette.CallBack callBack){
+    public PicassoPalette intoCallBack(PicassoPalette.CallBack callBack){
         if(callBack != null)
             callbacks.add(callBack);
         return this;
