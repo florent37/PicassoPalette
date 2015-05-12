@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Picassopalette by florent37</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Picassopalette</h1>
+      <h2 class="project-tagline">Android Lollipop Palette is now easy to use with Picasso !</h2>
+      <a href="https://github.com/florent37/PicassoPalette" class="btn">View on GitHub</a>
+      <a href="https://github.com/florent37/PicassoPalette/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/florent37/PicassoPalette/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="picassopalette" class="anchor" href="#picassopalette" aria-hidden="true"><span class="octicon octicon-link"></span></a>PicassoPalette</h1>
+
+<p><a href="https://travis-ci.org/florent37/PicassoPalette"><img src="https://travis-ci.org/florent37/Wear-Emmet.svg" alt="Build Status"></a></p>
+
+<p><img src="https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small_2.png" alt="Alt sample"></p>
+
+<h1>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span class="octicon octicon-link"></span></a>Download</h1>
+
+<p>In your module <a href="https://bintray.com/florent37/maven/PicassoPalette/_latestVersion"><img src="https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg" alt="Download"></a></p>
+
+<div class="highlight highlight-groovy"><pre>compile <span class="pl-s"><span class="pl-pds">'</span>com.github.florent37:picassopalette:1.0.0@aar<span class="pl-pds">'</span></span></pre></div>
+
+<h1>
+<a id="sample" class="anchor" href="#sample" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample</h1>
+
+<div class="highlight highlight-java"><pre><span class="pl-smi">Picasso</span><span class="pl-k">.</span>with(<span class="pl-v">this</span>)<span class="pl-k">.</span>load(url)<span class="pl-k">.</span>into(imageView,
+         <span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span>with(url, imageView)
+               .use(<span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Profile</span><span class="pl-c1"><span class="pl-k">.</span>MUTED_DARK</span>)
+                   .intoBackground(textView, <span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Swatch</span><span class="pl-c1"><span class="pl-k">.</span>RGB</span>)
+                   .intoTextColor(textView, <span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Swatch</span><span class="pl-c1"><span class="pl-k">.</span>BODY_TEXT_COLOR</span>)
+
+               .use(<span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Profile</span><span class="pl-c1"><span class="pl-k">.</span>VIBRANT</span>)
+                    .intoBackground(titleView, <span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Swatch</span><span class="pl-c1"><span class="pl-k">.</span>RGB</span>)
+                    .intoTextColor(titleView, <span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Swatch</span><span class="pl-c1"><span class="pl-k">.</span>BODY_TEXT_COLOR</span>)
+
+               .addCallBack(<span class="pl-k">new</span> <span class="pl-smi">PicassoPalette</span>.<span class="pl-smi">CallBack</span>() {
+                   <span class="pl-k">@Override</span>
+                   <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onPaletteLoaded</span>(<span class="pl-smi">Palette</span> <span class="pl-v">palette</span>) {
+                       <span class="pl-c">//specific task</span>
+                   }
+               })
+         );</pre></div>
+
+<h2>
+<a id="initialisation" class="anchor" href="#initialisation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Initialisation</h2>
+
+<p>First, init PicassoPalette with an <strong>Url</strong> and an <strong>ImageView</strong></p>
+
+<div class="highlight highlight-java"><pre><span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span>with(url, imageView)</pre></div>
+
+<h2>
+<a id="palettes" class="anchor" href="#palettes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Palettes</h2>
+
+<p>You can successively use following palettes :</p>
+
+<ul>
+<li>Palette.VIBRANT</li>
+<li>Palette.VIBRANT_DARK</li>
+<li>Palette.VIBRANT_LIGHT</li>
+<li>Palette.MUTED</li>
+<li>Palette.MUTED_DARK</li>
+<li>Palette.MUTED_LIGHT</li>
+</ul>
+
+<div class="highlight highlight-java"><pre>.use(<span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Profile</span><span class="pl-c1"><span class="pl-k">.</span>MUTED_DARK</span>)</pre></div>
+
+<p><strong>Each time you call "use" the next modification will follow this Profile</strong></p>
+
+<div class="highlight highlight-java"><pre>.use(<span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Profile</span><span class="pl-c1"><span class="pl-k">.</span>MUTED_DARK</span>)
+    <span class="pl-c">//next operations will use Profile.MUTED_DARK</span>
+.use(<span class="pl-smi">PicassoPalette</span><span class="pl-k">.</span><span class="pl-smi">Profile</span><span class="pl-c1"><span class="pl-k">.</span>VIBRANT</span>)
+    <span class="pl-c">//next operations will use Profile.VIBRANT</span></pre></div>
+
+<h2>
+<a id="swatches" class="anchor" href="#swatches" aria-hidden="true"><span class="octicon octicon-link"></span></a>Swatches</h2>
+
+<p>With the following Swatchs</p>
+
+<ul>
+<li>RGB</li>
+<li>TITLE_TEXT_COLOR</li>
+<li>BODY_TEXT_COLOR</li>
+</ul>
+
+<h2>
+<a id="targets" class="anchor" href="#targets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Targets</h2>
+
+<p>Into Backgrounds</p>
+
+<div class="highlight highlight-java"><pre>.intoBackground(view)
+.intoBackground(view,<span class="pl-smi">Swatch</span><span class="pl-c1"><span class="pl-k">.</span>RGB</span>)</pre></div>
+
+<p>And TextView Color</p>
+
+<div class="highlight highlight-java"><pre>.intoTextColor(textView)
+.intoTextColor(textView,<span class="pl-smi">Swatch</span><span class="pl-c1"><span class="pl-k">.</span>TITLE_TEXT_COLOR</span>)</pre></div>
+
+<h1>
+<a id="callback" class="anchor" href="#callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>CallBack</h1>
+
+<p>Or simply return into CallBack</p>
+
+<div class="highlight highlight-java"><pre>.intoCallBack(
+    <span class="pl-k">new</span> <span class="pl-smi">PicassoPalette</span>.<span class="pl-smi">CallBack</span>() {
+          <span class="pl-k">@Override</span>
+          <span class="pl-k">public</span> <span class="pl-k">void</span> <span class="pl-en">onPaletteLoaded</span>(<span class="pl-smi">Palette</span> <span class="pl-v">palette</span>) {
+              <span class="pl-c">//specific task</span>
+          }
+    })</pre></div>
+
+<h1>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<h1>
+<a id="community" class="anchor" href="#community" aria-hidden="true"><span class="octicon octicon-link"></span></a>Community</h1>
+
+<p>Looking for contributors, feel free to fork !</p>
+
+<h1>
+<a id="dependencies" class="anchor" href="#dependencies" aria-hidden="true"><span class="octicon octicon-link"></span></a>Dependencies</h1>
+
+<ul>
+<li>Picasso from Square : <a href="http://square.github.io/picasso/">http://square.github.io/picasso/</a>
+</li>
+</ul>
+
+<h1>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span class="octicon octicon-link"></span></a>Credits</h1>
+
+<p>Author: Florent Champigny</p>
+
+<p><a href="https://plus.google.com/+florentchampigny">
+  <img alt="Follow me on Google+" src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/gplus.png">
+</a>
+<a href="https://twitter.com/florent_champ">
+  <img alt="Follow me on Twitter" src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/twitter.png">
+</a>
+<a href="https://www.linkedin.com/profile/view?id=297860624">
+  <img alt="Follow me on LinkedIn" src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/linkedin.png">
+</a></p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<pre><code>Copyright 2015 florent37, Inc.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</code></pre>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/florent37/PicassoPalette">Picassopalette</a> is maintained by <a href="https://github.com/florent37">florent37</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
+
