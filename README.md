@@ -3,6 +3,8 @@ PicassoPalette
 
 [![Build Status](https://travis-ci.org/florent37/Wear-Emmet.svg)](https://travis-ci.org/florent37/PicassoPalette)
 
+![Alt sample](https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small.png)
+
 #Download
 
 In your module [![Download](https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg)](https://bintray.com/florent37/maven/PicassoPalette/_latestVersion)
@@ -31,10 +33,6 @@ Picasso.with(this).load(url).into(imageView,
                })
          );
 ```
-
-![Alt sample](https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small.png)
-
-
 
 ##Initialisation
 
