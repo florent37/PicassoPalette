@@ -25,13 +25,6 @@ Picasso.with(this).load(url).into(imageView,
                .use(PicassoPalette.Profile.VIBRANT)
                     .intoBackground(titleView, PicassoPalette.Swatch.RGB)
                     .intoTextColor(titleView, PicassoPalette.Swatch.BODY_TEXT_COLOR)
-
-               .addCallBack(new PicassoPalette.CallBack() {
-                   @Override
-                   public void onPaletteLoaded(Palette palette) {
-                       //specific task
-                   }
-               })
          );
 ```
 
