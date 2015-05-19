@@ -10,7 +10,7 @@ PicassoPalette
 
 In your module [![Download](https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg)](https://bintray.com/florent37/maven/PicassoPalette/_latestVersion)
 ```groovy
-compile 'com.github.florent37:picassopalette:1.0.0@aar'
+compile 'com.github.florent37:picassopalette:1.0.1@aar'
 ```
 
 #Sample
