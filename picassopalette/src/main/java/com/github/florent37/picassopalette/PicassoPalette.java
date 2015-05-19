@@ -187,7 +187,7 @@ public class PicassoPalette implements Target, Callback {
             PicassoPalette.this.apply(cache.get(url));
         }
         else {
-            Palette.generateAsync(bitmap, new Palette.PaletteAsyncListener() {
+            new Palette.Builder(bitmap).generate(new Palette.PaletteAsyncListener() {
                 @Override
                 public void onGenerated(Palette palette) {
                     cache.put(url, palette);
