@@ -1,1 +1,1 @@
-include ':sample', ':picassopalette'
+include ':sample'
