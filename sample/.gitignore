@@ -1,1 +1,4 @@
 /build
+
+# Intellij/Android Studio files
+*.iml
