@@ -5,6 +5,8 @@
       <root url="file://$PROJECT_DIR$/picassopalette/build/intermediates/exploded-aar/com.android.support/support-v4/22.1.1/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar:///Applications/AndroidSdk/sdk/extras/android/m2repository/com/android/support/support-v4/22.1.1/support-v4-22.1.1-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
