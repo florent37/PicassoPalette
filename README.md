@@ -1,7 +1,6 @@
 PicassoPalette
 =======
 
-[![Build Status](https://travis-ci.org/florent37/Wear-Emmet.svg)](https://travis-ci.org/florent37/PicassoPalette)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PicassoPalette%20-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1825)
 
 ![Alt sample](https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small_2.png)
@@ -10,7 +9,7 @@ PicassoPalette
 
 In your module [![Download](https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg)](https://bintray.com/florent37/maven/PicassoPalette/_latestVersion)
 ```groovy
-compile 'com.github.florent37:picassopalette:1.0.1@aar'
+compile 'com.github.florent37:picassopalette:1.0.2@aar'
 ```
 
 #Sample

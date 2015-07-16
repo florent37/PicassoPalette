@@ -1,40 +1,31 @@
 package com.github.florent37.picassopalette;
 
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.support.annotation.IntDef;
 import android.support.v4.util.Pair;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
 import android.util.LruCache;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
-
-import com.squareup.picasso.Callback;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
- * Created by florentchampigny on 08/05/15.
+ * Created by florentchampigny on 16/07/15.
  */
-public class PicassoPalette implements Target, Callback {
+public abstract class BitmapPalette {
 
-    public interface CallBack{
+    private static final String TAG = "BitmapPalette";
+
+    public interface CallBack {
         void onPaletteLoaded(Palette palette);
     }
 
-    private LruCache<String,Palette> cache = new LruCache<>(40);
-
-    private static final String TAG = "PicassoPalette";
+    private LruCache<String, Palette> cache = new LruCache<>(40);
 
     public static class Profile {
         public static final int VIBRANT = 0;
@@ -61,59 +52,38 @@ public class PicassoPalette implements Target, Callback {
         }
     }
 
-    private PicassoPalette() {
+    protected BitmapPalette() {
     }
 
-    private ImageView imageView;
-    private String url;
-    private Callback callback;
+    protected String url;
 
-    private LinkedList<PaletteTarget> targets = new LinkedList<>();
-    private ArrayList<PicassoPalette.CallBack> callbacks = new ArrayList<>();
+    protected LinkedList<PaletteTarget> targets = new LinkedList<>();
+    protected ArrayList<CallBack> callbacks = new ArrayList<>();
 
-    public static PicassoPalette with(String url, ImageView imageView) {
-        PicassoPalette picassoPalette = new PicassoPalette();
-        picassoPalette.url = url;
-        picassoPalette.imageView = imageView;
-        return picassoPalette;
-    }
-
-    public PicassoPalette use(@Profile.PaletteProfile int paletteProfile) {
+    public BitmapPalette use(@Profile.PaletteProfile int paletteProfile) {
         this.targets.add(new PaletteTarget(paletteProfile));
         return this;
     }
 
-    public PicassoPalette intoBackground(View view) {
-        return this.intoBackground(view, Swatch.RGB);
-    }
 
-    public PicassoPalette intoBackground(View view, @Swatch.PaletteSwatch int paletteSwatch) {
-        if(this.targets.isEmpty())
+    protected BitmapPalette intoBackground(View view, @Swatch.PaletteSwatch int paletteSwatch) {
+        if (this.targets.isEmpty())
             throw new UnsupportedOperationException("You must specify a palette with use(Profile.PaletteProfile)");
 
         this.targets.getLast().targetsBackground.add(new Pair<>(view, paletteSwatch));
         return this;
     }
 
-    public PicassoPalette intoTextColor(TextView textView) {
-        return this.intoBackground(textView, Swatch.TITLE_TEXT_COLOR);
-    }
-
-    public PicassoPalette intoTextColor(TextView textView, @Swatch.PaletteSwatch int paletteSwatch) {
-        if(this.targets.isEmpty())
+    protected BitmapPalette intoTextColor(TextView textView, @Swatch.PaletteSwatch int paletteSwatch) {
+        if (this.targets.isEmpty())
             throw new UnsupportedOperationException("You must specify a palette with use(Profile.PaletteProfile)");
 
         this.targets.getLast().targetsText.add(new Pair<>(textView, paletteSwatch));
         return this;
     }
 
-    public PicassoPalette setPicassoCallback(Callback callback) {
-        this.callback = callback;
-        return this;
-    }
-
-    public PicassoPalette intoCallBack(PicassoPalette.CallBack callBack){
-        if(callBack != null)
+    protected BitmapPalette intoCallBack(BitmapPalette.CallBack callBack) {
+        if (callBack != null)
             callbacks.add(callBack);
         return this;
     }
@@ -121,12 +91,12 @@ public class PicassoPalette implements Target, Callback {
 
     //region apply
 
-    private void apply(Palette palette) {
-        for(PicassoPalette.CallBack c : callbacks){
+    protected void apply(Palette palette) {
+        for (BitmapPalette.CallBack c : callbacks) {
             c.onPaletteLoaded(palette);
         }
 
-        for(PaletteTarget target : targets) {
+        for (PaletteTarget target : targets) {
             Palette.Swatch swatch = null;
             switch (target.paletteProfile) {
                 case Profile.VIBRANT:
@@ -166,7 +136,7 @@ public class PicassoPalette implements Target, Callback {
         }
     }
 
-    private static int getColor(Palette.Swatch swatch, @Swatch.PaletteSwatch int paletteSwatch) {
+    protected static int getColor(Palette.Swatch swatch, @Swatch.PaletteSwatch int paletteSwatch) {
         if (swatch != null) {
             switch (paletteSwatch) {
                 case Swatch.RGB:
@@ -176,60 +146,23 @@ public class PicassoPalette implements Target, Callback {
                 case Swatch.BODY_TEXT_COLOR:
                     return swatch.getBodyTextColor();
             }
-        }else{
-            Log.e(TAG,"error while generating Palette, null palette returned");
+        } else {
+            Log.e(TAG, "error while generating Palette, null palette returned");
         }
         return 0;
     }
 
-    private void start(Bitmap bitmap) {
-        if(cache.get(url) != null){
-            PicassoPalette.this.apply(cache.get(url));
-        }
-        else {
+    protected void start(Bitmap bitmap) {
+        if (cache.get(url) != null) {
+            BitmapPalette.this.apply(cache.get(url));
+        } else {
             new Palette.Builder(bitmap).generate(new Palette.PaletteAsyncListener() {
                 @Override
                 public void onGenerated(Palette palette) {
                     cache.put(url, palette);
-                    PicassoPalette.this.apply(palette);
+                    BitmapPalette.this.apply(palette);
                 }
             });
         }
     }
-
-    //enregion
-
-    //region Picasso.TARGET
-
-    @Override
-    public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-        start(bitmap);
-    }
-
-    @Override
-    public void onBitmapFailed(Drawable errorDrawable) {
-
-    }
-
-    @Override
-    public void onPrepareLoad(Drawable placeHolderDrawable) {
-
-    }
-
-    @Override
-    public void onSuccess() {
-        if(this.callback != null)
-            this.callback.onSuccess();
-        Bitmap bitmap = ((BitmapDrawable) this.imageView.getDrawable()).getBitmap();
-        onBitmapLoaded(bitmap, null);
-    }
-
-    @Override
-    public void onError() {
-        if(this.callback != null)
-            this.callback.onError();
-    }
-
-    //endregion
-
 }
