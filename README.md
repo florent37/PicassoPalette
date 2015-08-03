@@ -110,7 +110,7 @@ Looking for contributors, feel free to fork !
 
 #Credits
 
-Author: Florent Champigny
+Author: Florent Champigny www.florentchampigny.com/
 
 <a href="https://plus.google.com/+florentchampigny">
   <img alt="Follow me on Google+"
