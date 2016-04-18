@@ -2,10 +2,10 @@ package com.github.florent37.picassopalette;
 
 import android.graphics.Bitmap;
 import android.support.annotation.IntDef;
+import android.support.v4.util.LruCache;
 import android.support.v4.util.Pair;
 import android.support.v7.graphics.Palette;
 import android.util.Log;
-import android.util.LruCache;
 import android.view.View;
 import android.widget.TextView;
 

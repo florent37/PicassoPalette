@@ -21,7 +21,7 @@ public class PaletteTarget {
         this.paletteProfile = paletteProfile;
     }
 
-    public void clear(){
+    public void clear() {
         targetsBackground.clear();
         targetsText.clear();
 
