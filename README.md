@@ -9,11 +9,16 @@ PicassoPalette
 
 In your module [![Download](https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg)](https://bintray.com/florent37/maven/PicassoPalette/_latestVersion)
 ```groovy
+<<<<<<< 094831880f08293ebfc21f3cd8d8449434f4ca75
 repositories {
     jcenter()
 }
 
 compile 'com.github.florent37:picassopalette:1.0.2@aar'
+=======
+compile 'com.github.florent37:picassopalette:2.0.0'
+compile 'com.squareup.picasso:picasso:2.5.2'
+>>>>>>> updated versions 2.0.0
 ```
 
 #Sample
@@ -124,7 +129,7 @@ Author: Florent Champigny www.florentchampigny.com/
   <img alt="Follow me on Twitter"
        src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/twitter.png" />
 </a>
-<a href="https://www.linkedin.com/profile/view?id=297860624">
+<a href="https://www.linkedin.com/in/florentchampigny">
   <img alt="Follow me on LinkedIn"
        src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/linkedin.png" />
 </a>
