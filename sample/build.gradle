@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion project.sdk
+    buildToolsVersion project.buildTools
 
     defaultConfig {
+        minSdkVersion project.minSdk
+        targetSdkVersion project.sdk
         applicationId "com.github.florent37.picassopalette"
-        minSdkVersion 14
-        targetSdkVersion 21
         versionCode 1
         versionName "1.0"
     }
@@ -21,7 +21,7 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.1.1'
+    compile 'com.android.support:appcompat-v7:'+project.supportVersion
     compile 'com.squareup.picasso:picasso:2.5.2'
 
     compile project(":picassopalette")
