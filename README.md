@@ -16,8 +16,8 @@ compile 'com.squareup.picasso:picasso:2.5.2'
 #Sample
 
 ```java
-Picasso.with(this).load(url).into(imageView,
-         PicassoPalette.with(url, imageView)
+Picasso.with(this).load(url.toString()).into(imageView,
+         PicassoPalette.with(url.toString(), imageView)
                .use(PicassoPalette.Profile.MUTED_DARK)
                    .intoBackground(textView)
                    .intoTextColor(textView)
@@ -33,7 +33,7 @@ Picasso.with(this).load(url).into(imageView,
 First, init PicassoPalette with an **Url** and an **ImageView**
 
 ```java
-PicassoPalette.with(url, imageView)
+PicassoPalette.with(url.toString(), imageView)
 ```
 
 ##Palettes
