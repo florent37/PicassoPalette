@@ -5,7 +5,7 @@ PicassoPalette
 
 ![Alt sample](https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small_2.png)
 
-#Download
+# Download
 
 In your module [![Download](https://api.bintray.com/packages/florent37/maven/PicassoPalette/images/download.svg)](https://bintray.com/florent37/maven/PicassoPalette/_latestVersion)
 ```groovy
@@ -13,7 +13,7 @@ compile 'com.github.florent37:picassopalette:2.0.0'
 compile 'com.squareup.picasso:picasso:2.5.2'
 ```
 
-#Sample
+# Sample
 
 ```java
 Picasso.with(this).load(url.toString()).into(imageView,
@@ -28,7 +28,7 @@ Picasso.with(this).load(url.toString()).into(imageView,
          );
 ```
 
-##Initialisation
+## Initialisation
 
 First, init PicassoPalette with an **Url** and an **ImageView**
 
@@ -36,7 +36,7 @@ First, init PicassoPalette with an **Url** and an **ImageView**
 PicassoPalette.with(url.toString(), imageView)
 ```
 
-##Palettes
+## Palettes
 
 You can successively use following palettes :
 
@@ -60,7 +60,7 @@ You can successively use following palettes :
     //next operations will use Profile.VIBRANT
 ```
 
-##Swatches
+## Swatches
 
 With the following Swatchs
 
@@ -68,7 +68,7 @@ With the following Swatchs
 - TITLE_TEXT_COLOR
 - BODY_TEXT_COLOR
 
-##Targets
+## Targets
 
 Into Backgrounds
 
@@ -84,7 +84,7 @@ And TextView Color
 .intoTextColor(textView,Swatch.TITLE_TEXT_COLOR)
 ```
 
-#CallBack
+# CallBack
 
 Or simply return into CallBack
 
@@ -99,17 +99,17 @@ Or simply return into CallBack
 ```
 
 
-#TODO
+# TODO
 
-#Community
+# Community
 
 Looking for contributors, feel free to fork !
 
-#Dependencies
+# Dependencies
 
 - Picasso from Square : [http://square.github.io/picasso/][picasso]
 
-#Credits
+# Credits
 
 Author: Florent Champigny www.florentchampigny.com/
 
@@ -126,7 +126,7 @@ Author: Florent Champigny www.florentchampigny.com/
        src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/linkedin.png" />
 </a>
 
-#License
+# License
 
     Copyright 2015 florent37, Inc.
 
