@@ -1,6 +1,10 @@
 PicassoPalette
 =======
 
+<a href="com.github.florent37.florent.champigny">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
+
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PicassoPalette%20-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/1825)
 
 ![Alt sample](https://raw.githubusercontent.com/florent37/PicassoPalette/master/screenshot/nyancat_small_2.png)
@@ -115,6 +119,9 @@ Looking for contributors, feel free to fork !
 
 Author: Florent Champigny www.florentchampigny.com/
 
+<a href="com.github.florent37.florent.champigny">
+  <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
+</a>
 <a href="https://plus.google.com/+florentchampigny">
   <img alt="Follow me on Google+"
        src="https://raw.githubusercontent.com/florent37/DaVinci/master/mobile/src/main/res/drawable-hdpi/gplus.png" />
