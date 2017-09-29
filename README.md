@@ -1,7 +1,7 @@
 PicassoPalette
 =======
 
-<a href="com.github.florent37.florent.champigny">
+<a href="https://play.google.com/store/apps/details?id=com.github.florent37.florent.champigny">
   <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
 </a>
 
@@ -119,7 +119,7 @@ Looking for contributors, feel free to fork !
 
 Author: Florent Champigny www.florentchampigny.com/
 
-<a href="com.github.florent37.florent.champigny">
+<a href="https://play.google.com/store/apps/details?id=com.github.florent37.florent.champigny">
   <img alt="Android app on Google Play" src="https://developer.android.com/images/brand/en_app_rgb_wo_45.png" />
 </a>
 <a href="https://plus.google.com/+florentchampigny">
