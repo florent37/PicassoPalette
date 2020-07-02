@@ -119,7 +119,7 @@ Looking for contributors, feel free to fork !
 
 # Credits
 
-Author: Florent Champigny www.florentchampigny.com/
+Author: Florent Champigny 
 
 
 <a href="https://goo.gl/WXW8Dc">
